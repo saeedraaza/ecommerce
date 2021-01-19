@@ -1,0 +1,41 @@
+swagger: "2.0"
+info:
+  title: beego Test API
+  description: beego has a very cool tools to autogenerate documents for your API
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v1
+paths:
+  /coffee_machines/:
+    get:
+      tags:
+      - coffee_machines
+      description: get all Coffee Machines
+      operationId: CoffeeMachinesController.GetAll
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.CoffeeMachine'
+definitions:
+  models.CoffeeMachine:
+    title: CoffeeMachine
+    type: object
+    properties:
+      ProductType:
+        $ref: '#/definitions/models.ProductType'
+      WaterLine:
+        type: boolean
+  models.ProductType:
+    title: ProductType
+    format: int64
+    type: integer
+tags:
+- name: coffee_machines
+  description: |
+    Operations about CoffeeMachines
